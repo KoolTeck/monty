@@ -1,0 +1,29 @@
+#include "monty.h"
+
+/**
+ * opc_push - pushes an element to the stack
+ *
+ * @stack: the memory address to the stack
+ * @data: The line number of the opcode
+ *
+ * Return: nothing
+ */
+void opc_push(stack_t **stack, unsigned int data)
+{
+add_dnodeint(stack, data);
+}
+
+
+/**
+ * opc_pal - prints the elements in a stack
+ *
+ * @stack: the memory address to the stack
+ * @data: The line number of the opcode
+ *
+ * Return: nothing
+ */
+void opc_pal(stack_t **stack, unsigned int data)
+{
+(void)data;
+print_dlistint(*stack);
+}

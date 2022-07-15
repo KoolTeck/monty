@@ -27,3 +27,16 @@ void opc_pal(stack_t **stack, unsigned int data)
 (void)data;
 print_dlistint(*stack);
 }
+
+/**
+ * opc_pint - prints the top  element in a stack
+ *
+ * @stack: the memory address to the stack
+ * @lNum: The line number of the opcode
+ *
+ * Return: nothing
+ */
+void opc_pint(stack_t **stack, unsigned int lNum)
+{
+print_top_int(*stack, lNum);
+}

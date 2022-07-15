@@ -1,15 +1,8 @@
-push 0
 push 1
+pint
 push 2
-  push 3d
-                   pall
-
-
-
-
-push 4
-
-    push 5    
-      push    6        
+pint
+push 3
+pint
 
 pall This is the end of our program. Monty is awesome!

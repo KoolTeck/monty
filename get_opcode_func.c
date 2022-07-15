@@ -17,7 +17,7 @@ instruction_t instruction[] = {
 };
 compare = (strcmp(token[0], instruction[0].opcode)) == 0;
 i = 0;
-if (compare)
+if (compare && (strcmp(token[1], "\0")) != 48)
 {
 if (token[1] == NULL || atoi(token[1]) == 0)
 {

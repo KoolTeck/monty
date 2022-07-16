@@ -39,11 +39,12 @@ void (*f)(stack_t **stack, unsigned int line_number);
 void print_error(char *format, char type, ...);
 
 /*stack helpers */
-stack_t *add_dnodeint(stack_t **head, unsigned int n);
-void print_dlistint(stack_t *h);
+void opc_push(stack_t **head, unsigned int n);
+void opc_pall(stack_t **h, unsigned int lnum);
 void free_dlistint(stack_t *head);
-void print_top_int(stack_t *head, unsigned int lnum);
-void pop_top_int(stack_t **head, unsigned int lNum);
+void opc_pint(stack_t **head, unsigned int lnum);
+void opc_pop(stack_t **head, unsigned int lNum);
+void opc_swap(stack_t **head, unsigned int lnum);
 
 /* program functions */
 void (*get_opcode_func(int lNum, char **token))(stack_t **, unsigned int);
@@ -51,11 +52,4 @@ void (*get_opcode_func(int lNum, char **token))(stack_t **, unsigned int);
 char **break_line(char *line_buf);
 void read_line(char **line_buf, size_t *buf_size, FILE *fp, stack_t **stk);
 
-void opc_pal(stack_t **stack, unsigned int data);
-
-void opc_push(stack_t **stack, unsigned int data);
-
-void opc_pint(stack_t **stack, unsigned int lNum);
-
-void opc_pop(stack_t **stack, unsigned int lNum);
 #endif /* MONTY_H */

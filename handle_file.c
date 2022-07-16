@@ -55,9 +55,10 @@ void (*get_opcode_func(int lNum, char **token))(stack_t **, unsigned int)
 int i, compare;
 instruction_t instruction[] = {
 {"push", opc_push},
-{"pall", opc_pal},
+{"pall", opc_pall},
 {"pint", opc_pint},
 {"pop", opc_pop},
+{"swap", opc_swap},
 {NULL, NULL}
 };
 compare = (strcmp(token[0], instruction[0].opcode)) == 0;

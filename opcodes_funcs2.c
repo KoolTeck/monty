@@ -50,3 +50,46 @@ void opc_nop(stack_t **head, unsigned int lnum)
 (void)head;
 (void)lnum;
 }
+
+/**
+ * opc_sub - subtracts the top two elements in stack
+ * @head: the head node
+* @lnum: the line number from the file being read
+ *
+ * Return: nothing
+ */
+void opc_sub(stack_t **head, unsigned int lnum)
+{
+stack_t *current;
+int temp;
+if (*head == NULL || (*head)->next == NULL)
+print_error("L%d: can't sub, stack too short\n", 'd', lnum);
+current = *head;
+temp = (*head)->n;
+(*head)->next->n = (*head)->next->n - temp;
+*head = (*head)->next;
+free(current);
+}
+
+
+/**
+ * opc_div - divides the top two elements in stack
+ * @head: the head node
+* @lnum: the line number from the file being read
+ *
+ * Return: nothing
+ */
+void opc_div(stack_t **head, unsigned int lnum)
+{
+stack_t *current;
+int temp;
+if ((*head)->n == 0)
+print_error("L%d: division by zero\n", 'd', lnum);
+if (*head == NULL || (*head)->next == NULL)
+print_error("L%d: can't sub, stack too short\n", 'd', lnum);
+current = *head;
+temp = (*head)->n;
+(*head)->next->n = (*head)->next->n / temp;
+*head = (*head)->next;
+free(current);
+}

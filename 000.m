@@ -1,11 +1,13 @@
 nop
 nop
-push 1
+push 0
 push 2
-push 3
-add
+push 10
+push 2
 pall
-pop
+div
+pall
+pint
 
 
 

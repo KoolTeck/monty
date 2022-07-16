@@ -61,6 +61,9 @@ instruction_t instruct[] = {
 {"swap", opc_swap},
 {"add", opc_add},
 {"nop", opc_nop},
+{"sub", opc_sub},
+{"div", opc_div},
+{"mul", opc_mul},
 {NULL, NULL}
 };
 push_err = check_p_arg(token, instruct[0].opcode, lNum);
@@ -141,7 +144,7 @@ int check_p_arg(char **token, char *opcode, int lNum)
 {
 int compare;
 compare = (strcmp(token[0], opcode)) == 0;
-if (compare && (strcmp(token[0], "\0")) != 48)
+if (compare && (strcmp(token[1], "\0")) != 48)
 {
 if (token[1] == NULL || atoi(token[1]) == 0)
 {

@@ -25,6 +25,8 @@ line_count++;
 continue;
 }
 token = break_line(*line_buf);
+if (strcmp(token[0], "nop") == 0)
+continue;
 f = get_opcode_func(line_count, token);
 if (f == NULL)
 exit(EXIT_FAILURE);
@@ -52,8 +54,8 @@ free(token);
  */
 void (*get_opcode_func(int lNum, char **token))(stack_t **, unsigned int)
 {
-int i, compare;
-instruction_t instruction[] = {
+int i, push_err = 0;
+instruction_t instruct[] = {
 {"push", opc_push},
 {"pall", opc_pall},
 {"pint", opc_pint},
@@ -62,24 +64,15 @@ instruction_t instruction[] = {
 {"add", opc_add},
 {NULL, NULL}
 };
-compare = (strcmp(token[0], instruction[0].opcode)) == 0;
-i = 0;
-if (compare && (strcmp(token[1], "\0")) != 48)
-{
-if (token[1] == NULL || atoi(token[1]) == 0)
-{
-free(token[0]);
-free(token);
-fprintf(stderr, "L%d: usage: push integer\n", lNum
-);
+push_err = check_p_arg(token, instruct[0].opcode, lNum);
+if (push_err)
 return (NULL);
-}
-}
-while (instruction[i].opcode != NULL)
+i = 0;
+while (instruct[i].opcode != NULL)
 {
-if ((strcmp(token[0], instruction[i].opcode)) == 0)
+if ((strcmp(token[0], instruct[i].opcode)) == 0)
 {
-return (instruction[i].f);
+return (instruct[i].f);
 }
 i++;
 }
@@ -134,4 +127,31 @@ token = strtok(NULL, " ");
 argv[1] = token;
 free(opcode);
 return (argv);
+}
+
+/**
+ * check_p_arg - checks the push opcode arg for error
+ * @opcode: the corresponding opcode
+ * @token: the buff containing opcode and arg
+ * @lNum: the number line
+ *
+ * Return: Always 1 or 0;
+ */
+
+int check_p_arg(char **token, char *opcode, int lNum)
+{
+int compare;
+compare = (strcmp(token[0], opcode)) == 0;
+if (compare && (strcmp(token[0], "\0")) != 48)
+{
+if (token[1] == NULL || atoi(token[1]) == 0)
+{
+free(token[0]);
+free(token);
+fprintf(stderr, "L%d: usage: push integer\n", lNum
+);
+return (1);
+}
+}
+return (0);
 }

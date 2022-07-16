@@ -52,5 +52,6 @@ void (*get_opcode_func(int lNum, char **token))(stack_t **, unsigned int);
 
 char **break_line(char *line_buf);
 void read_line(char **line_buf, size_t *buf_size, FILE *fp, stack_t **stk);
+int check_p_arg(char **token, char *opcode, int lNum);
 
 #endif /* MONTY_H */

@@ -36,3 +36,17 @@ temp = (*head)->n;
 *head = (*head)->next;
 free(current);
 }
+
+
+/**
+ * opc_nop - an opcode that does nothing
+ * @head: the head node
+* @lnum: the line number from the file being read
+ *
+ * Return: nothing
+ */
+void opc_nop(stack_t **head, unsigned int lnum)
+{
+(void)head;
+(void)lnum;
+}

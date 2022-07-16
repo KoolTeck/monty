@@ -25,8 +25,6 @@ line_count++;
 continue;
 }
 token = break_line(*line_buf);
-if (strcmp(token[0], "nop") == 0)
-continue;
 f = get_opcode_func(line_count, token);
 if (f == NULL)
 exit(EXIT_FAILURE);
@@ -62,6 +60,7 @@ instruction_t instruct[] = {
 {"pop", opc_pop},
 {"swap", opc_swap},
 {"add", opc_add},
+{"nop", opc_nop},
 {NULL, NULL}
 };
 push_err = check_p_arg(token, instruct[0].opcode, lNum);

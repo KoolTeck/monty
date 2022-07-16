@@ -83,10 +83,10 @@ void opc_div(stack_t **head, unsigned int lnum)
 {
 stack_t *current;
 int temp;
+if (*head == NULL || (*head)->next == NULL)
+print_error("L%d: can't div, stack too short\n", 'd', lnum);
 if ((*head)->n == 0)
 print_error("L%d: division by zero\n", 'd', lnum);
-if (*head == NULL || (*head)->next == NULL)
-print_error("L%d: can't sub, stack too short\n", 'd', lnum);
 current = *head;
 temp = (*head)->n;
 (*head)->next->n = (*head)->next->n / temp;

@@ -19,7 +19,7 @@ while ((line_size = getline(line_buf, buf_size, fp)) != -1)
 {
 if (line_size == -1)
 free(line_buf);
-if (*line_buf[0] == '\n')
+if (*line_buf[0] == '\n' || *line_buf[0] == '#')
 {
 line_count++;
 continue;
@@ -64,6 +64,7 @@ instruction_t instruct[] = {
 {"sub", opc_sub},
 {"div", opc_div},
 {"mul", opc_mul},
+{"mod", opc_mod},
 {NULL, NULL}
 };
 push_err = check_p_arg(token, instruct[0].opcode, lNum);

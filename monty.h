@@ -50,6 +50,7 @@ void opc_nop(stack_t **head, unsigned int lnum);
 void opc_sub(stack_t **head, unsigned int lnum);
 void opc_div(stack_t **head, unsigned int lnum);
 void opc_mul(stack_t **head, unsigned int lnum);
+void opc_mod(stack_t **head, unsigned int lnum);
 
 /* program functions */
 void (*get_opcode_func(int lNum, char **token))(stack_t **, unsigned int);

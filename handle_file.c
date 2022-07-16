@@ -57,6 +57,7 @@ instruction_t instruction[] = {
 {"push", opc_push},
 {"pall", opc_pal},
 {"pint", opc_pint},
+{"pop", opc_pop},
 {NULL, NULL}
 };
 compare = (strcmp(token[0], instruction[0].opcode)) == 0;

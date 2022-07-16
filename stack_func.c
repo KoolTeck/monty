@@ -27,18 +27,19 @@ return (new);
  * print_dlistint - prints the elements in a doubly  inked list
  * @h: the head node
  *
- * Return: the number of elements
+ * Return: nothing
  */
-size_t print_dlistint(const stack_t *h)
+void print_dlistint(stack_t *h)
 {
-size_t n = 0;
-while (h != NULL)
+stack_t *current = NULL;
+current = h;
+if (current == NULL)
+return;
+while (current)
 {
-printf("%d\n", h->n);
-h = h->next;
-n++;
+printf("%d\n", current->n);
+current = current->next;
 }
-return (n);
 }
 
 /**
@@ -70,4 +71,24 @@ void print_top_int(stack_t *head, unsigned int lnum)
 if (head == NULL)
 print_error("L%d: can't pint, stack empty\n", 'd', lnum);
 printf("%d\n", head->n);
+}
+
+
+/**
+ * pop_top_int - removes the top node in d-list
+ * @head: the head node
+* @lnum: the line number from the file being read
+ *
+ * Return: nothing
+ */
+void pop_top_int(stack_t **head, unsigned int lnum)
+{
+stack_t *temp = NULL;
+temp = *head;
+if (temp == NULL)
+print_error("L%d: can't pop an empty stack\n", 'd', lnum);
+*head = temp->next;
+if (*head != NULL)
+(*head)->prev = NULL;
+free(temp);
 }

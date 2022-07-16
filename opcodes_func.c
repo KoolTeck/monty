@@ -40,3 +40,16 @@ void opc_pint(stack_t **stack, unsigned int lNum)
 {
 print_top_int(*stack, lNum);
 }
+
+/**
+ * opc_pint - removes the top  element in a stack
+ *
+ * @stack: the memory address to the stack
+ * @lNum: The line number of the opcode
+ *
+ * Return: nothing
+ */
+void opc_pop(stack_t **stack, unsigned int lNum)
+{
+pop_top_int(stack, lNum);
+}

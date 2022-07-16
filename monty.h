@@ -40,9 +40,10 @@ void print_error(char *format, char type, ...);
 
 /*stack helpers */
 stack_t *add_dnodeint(stack_t **head, unsigned int n);
-size_t print_dlistint(const stack_t *h);
+void print_dlistint(stack_t *h);
 void free_dlistint(stack_t *head);
 void print_top_int(stack_t *head, unsigned int lnum);
+void pop_top_int(stack_t **head, unsigned int lNum);
 
 /* program functions */
 void (*get_opcode_func(int lNum, char **token))(stack_t **, unsigned int);
@@ -56,4 +57,5 @@ void opc_push(stack_t **stack, unsigned int data);
 
 void opc_pint(stack_t **stack, unsigned int lNum);
 
+void opc_pop(stack_t **stack, unsigned int lNum);
 #endif /* MONTY_H */

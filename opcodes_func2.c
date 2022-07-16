@@ -9,9 +9,10 @@
  */
 void opc_swap(stack_t **head, unsigned int lnum)
 {
-int temp = (*head)->n;
+int temp;
 if (*head == NULL || (*head)->next == NULL)
 print_error("L%d: can't swap, stack too short\n", 'd', lnum);
+temp = (*head)->n;
 (*head)->n = (*head)->next->n;
 (*head)->next->n = temp;
 }

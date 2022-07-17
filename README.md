@@ -5,5 +5,11 @@
  The goal of this project is to create an interpreter for Monty ByteCodes files.
 
 # Compilation & Output
-Your code will be compiled this way:
+compile this way:
 $ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty
+
+# Usage:
+
+  - ./monty filename (e.g ./monty 000.m)
+  - the file must contain byte codes
+  - '#' is treated as a comment

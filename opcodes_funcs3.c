@@ -42,3 +42,20 @@ temp = (*head)->n;
 *head = (*head)->next;
 free(current);
 }
+
+
+/**
+ * opc_pchar - prints the char at the top of the stack,
+ * @head: the head node
+ * @lnum: the line number from the file being read
+ *
+ * Return: nothing
+ */
+void opc_pchar(stack_t **head, unsigned int lnum)
+{
+if (*head == NULL)
+print_error("L%d: can't pchar, stack empty\n", 'd', lnum);
+if ((*head)->n < 0 || (*head)->n > 127)
+print_error("L%d: value out of range\n", 'd', lnum);
+printf("%c\n",(*head)->n);
+}

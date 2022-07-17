@@ -1,4 +1,4 @@
-pchar
+
 nop
 nop
 push 0

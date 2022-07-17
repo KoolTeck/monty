@@ -56,6 +56,6 @@ void opc_pchar(stack_t **head, unsigned int lnum)
 if (*head == NULL)
 print_error("L%d: can't pchar, stack empty\n", 'd', lnum);
 if ((*head)->n < 0 || (*head)->n > 127)
-print_error("L%d: value out of range\n", 'd', lnum);
+print_error("L%d: can't pchar, value out of range\n", 'd', lnum);
 printf("%c\n",(*head)->n);
 }

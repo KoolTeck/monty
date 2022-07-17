@@ -66,6 +66,7 @@ instruction_t instruct[] = {
 {"mul", opc_mul},
 {"mod", opc_mod},
 {"pchar", opc_pchar},
+{"pstr", opc_pstr},
 {NULL, NULL}
 };
 push_err = check_p_arg(token, instruct[0].opcode, lNum);

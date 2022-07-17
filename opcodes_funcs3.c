@@ -59,3 +59,24 @@ if ((*head)->n < 0 || (*head)->n > 127)
 print_error("L%d: can't pchar, value out of range\n", 'd', lnum);
 printf("%c\n",(*head)->n);
 }
+
+
+
+/**
+ * opc_pstr - prints the string satrting at the top of the stack,
+ * @head: the head node
+ * @lnum: the line number from the file being read
+ *
+ * Return: nothing
+ */
+void opc_pstr(stack_t **head, unsigned int lnum)
+{
+(void)lnum;
+while (*head && (*head)->n > 0 && (*head)->n < 127)
+{
+printf("%c",(*head)->n);
+*head = (*head)->next;
+}
+printf("\n");
+}
+
